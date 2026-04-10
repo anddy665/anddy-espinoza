@@ -1,0 +1,36 @@
+/** ===== Default Header Header ===== **/
+.site-header
+	position: relative
+	z-index: 999
+
+	.header-container
+		max-width: 1650px
+		padding: 0 15px
+		margin: auto
+
+	.header-navigation
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+.default-header
+	.header-navigation
+		min-height: 95px
+
+	.noxfolio-nav-menu
+		&.mobile-expand-xl
+			@include respond-below(xl)
+				margin-left: auto
+		&.mobile-expand-lg
+			@include respond-below(lg)
+				margin-left: auto
+
+		&.mobile-expand-md
+			@include respond-below(md)
+				margin-left: auto
+
+	.noxfolio-button-wrapper
+		margin-left: 30px
+
+		@include respond-below(md)
+			display: none

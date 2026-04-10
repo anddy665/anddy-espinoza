@@ -1,0 +1,76 @@
+/** ===== Testimonials ===== **/
+.noxfolio-testimonials
+	+grid(3, 30px, 30px)
+	line-height: 1
+
+	@include respond-below(lg)
+		grid-template-columns: repeat(2, 1fr)
+
+	@include respond-below(md)
+		grid-template-columns: repeat(1, 1fr)
+
+	.noxfolio-testimonial-box
+		padding: 50px
+		position: relative
+		+border()
+		border-radius: 16px
+		+bgcolor(dark-light)
+		text-align: center
+
+		@include respond-below(xl)
+			padding: 50px 35px
+
+		@include respond-below(c480)
+			padding: 40px 30px
+
+		&,
+		.name,
+		.title,
+		.description,
+		.quote-icon
+			transition: 0.3s
+
+		.author-image
+			display: inline-flex
+			position: relative
+			z-index: 1
+			margin-bottom: 40px
+
+			img
+				width: 85px
+				height: 85px
+				border-radius: 50%
+				object-fit: cover
+				object-position: center top
+
+			.quote-icon
+				+poLT(0, 50%)
+				+tt(calc( -100% + 15px ), -50%)
+				+createbox(60px, 60px, true)
+				+color(primary)
+				+bgcolor(secondary)
+
+		.description
+			+fsw(16px, 400)
+			line-height: 1.85
+			margin: 0 0 30px
+
+		.name
+			font-size: 22px
+			margin: 0
+
+			@include respond-below(c480)
+				font-size: 20px
+
+		.title
+			display: block
+			+color(primary)
+			font-size: 14px
+			margin-top: 10px
+
+		&:hover
+			+bgcolor(secondary)
+
+			.quote-icon
+				+color(secondary)
+				+bgcolor(primary)

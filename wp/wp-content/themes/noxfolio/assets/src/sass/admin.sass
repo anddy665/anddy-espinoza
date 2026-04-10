@@ -1,0 +1,537 @@
+/**
+ Noxfolio Admin CSS
+
+// Variable
+$font-primary: 'Inter', sans-serif
+$color-dark: #02050A
+$color-white: #ffffff
+$color-blue: #AB57FF
+
+// Common
+.noxfolio-dashboard-header,
+.noxfolio-dashboard-pages,
+.csf-options .csf-container
+    max-width: 1350px
+    width: 100%
+    margin: 0
+
+.noxfolio-dashboard-header
+    margin: 20px 0 45px
+
+.noxfolio-dashboard-pages
+    &,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+        font-family: $font-primary
+
+// Banner
+.noxfolio-dashboard-banner
+    position: relative
+    padding: 55px
+    background-color: #603AF9
+    background-size: cover
+    background-position: right top
+    margin-bottom: 50px
+    font-family: $font-primary
+
+    h3
+        font-family: $font-primary
+        font-size: 30px
+        font-weight: 600
+        line-height: 1.2
+        color: $color-white
+        margin: 0 0 18px
+
+    p
+        font-size: 16px
+        font-weight: 400
+        line-height: 1.2
+        color: $color-white
+        margin: 0
+
+    a
+        color: $color-white
+        font-weight: 600
+        text-decoration: underline
+
+// Nab Wrapper
+.dashboard-nav-wrapper
+    display: flex
+    flex-wrap: wrap
+    gap: 20px
+
+    .nav-tab
+        border: none
+        background: $color-white
+        box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.05)
+        padding: 15px 25px
+        line-height: 1.2
+        margin: 0
+        color: $color-dark
+        font-family: $font-primary
+        font-size: 16px
+        font-weight: 600
+        transition: 0.3s
+        float: none
+
+        &:hover,
+        &.nav-tab-active
+            color: #fff
+            background: $color-blue
+            box-shadow: none
+
+// Welcome Page
+.noxfolio-dashboard-pages
+    font-family: $font-primary
+    font-size: 16px
+    color: #696969
+
+    a:focus
+        outline: none
+        -webkit-box-shadow: none
+        box-shadow: none
+
+    img
+        max-width: 100%
+
+.noxfolio-welcome-title
+    h3
+        font-size: 28px
+        font-weight: 600
+        line-height: 1.4
+        margin: 0
+        color: $color-dark
+
+        span
+            display: block
+            font-size: 15px
+            margin-top: 5px
+            font-weight: 500
+
+    p
+        font-size: 16px
+        margin: 15px 0 0
+        font-weight: 500
+
+.noxfolio-welcome-wrapper
+    display: flex
+    gap: 40px
+    align-items: center
+    padding: 50px 35px
+    background-color: $color-white
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.05)
+    margin-top: 40px
+
+    .wrapper-left,
+    .wrapper-right
+        max-width: 50%
+
+.noxfolio-welcome-step-title
+    margin: 25px 0 20px
+    font-size: 18px
+    font-weight: 600
+    color: $color-dark
+
+.noxfolio-welcome-wrapper
+    ul
+        margin: 0
+
+        li
+            font-size: 16px
+            margin-bottom: 20px
+
+            &:last-child
+                margin-bottom: 0
+
+            a
+                color: #693AED
+
+        .step-title
+            font-size: 16px
+            font-weight: 600
+            display: block
+            margin: 0 0 10px
+            color: $color-dark
+
+// Activation
+.noxfolio-activation-wrapper
+    display: grid
+    gap: 30px
+    grid-template-columns: 1.2fr 1fr
+    align-items: flex-start
+
+    h4
+        font-size: 22px
+        font-weight: 600
+        color: $color-dark
+        margin: 0
+        line-height: 1.2
+
+    .activation-help-wrap
+        background: linear-gradient(180deg, #613BF9 -4.38%, #9D4BF1 105.58%)
+        padding: 40px
+
+        &,
+        h4,
+        a
+            color: $color-white
+
+        ul
+            margin: 25px 0 0
+            padding: 0
+            list-style: none
+            font-size: 16px
+            line-height: 1.4
+
+            li
+                position: relative
+                padding-left: 25px
+
+                &:not(:last-child)
+                    margin-bottom: 15px
+
+                &::before
+                    content: ""
+                    position: absolute
+                    left: 0
+                    top: 50%
+                    -webkit-transform: translate(0, -50%)
+                    -ms-transform: translate(0, -50%)
+                    transform: translate(0, -50%)
+                    width: 10px
+                    height: 10px
+                    border-radius: 50%
+                    border: 2px solid #fff
+
+                &::after
+                    content: ""
+                    position: absolute
+                    left: 5px
+                    top: 50%
+                    -webkit-transform: translate(0, -50%)
+                    -ms-transform: translate(0, -50%)
+                    transform: translate(0, -50%)
+                    width: 4px
+                    height: 4px
+                    background: #fff
+                    border-radius: 50%
+
+    .activation-form-wrap
+        padding: 40px
+        background: $color-white
+        position: relative
+
+        p
+            font-size: 15px
+            margin: 5px 0 25px
+
+        .license-note
+            margin: 0
+            padding: 20px 0 0
+
+    .from-fields
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        gap: 20px
+
+        input[name="purchase_code"]
+            grid-column: 1/3
+
+        input
+            width: 100%
+            height: 55px
+            border: 1px solid rgba(2, 5, 10, 0.1)
+            border-radius: 0
+            padding: 0 25px
+            transition: 0.3s
+
+            &:focus
+                border-color: $color-blue
+                outline: none
+                -webkit-box-shadow: none
+                box-shadow: none
+
+    button
+        margin-top: 20px
+        width: 100%
+        height: 50px
+        border: none
+        background: $color-blue
+        cursor: pointer
+        color: $color-white
+        font-size: 16px
+        font-weight: 700
+        transition: 0.3s
+        position: relative
+
+        &.deactivate-license
+            background-color: red
+
+        &:hover
+            background-color: #02050A
+
+        .loading-text
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -51%)
+            transition: 0.3s
+            opacity: 0
+            visibility: hidden
+
+        &.loading
+            .button-text
+                transition: 0.3s
+                opacity: 0
+                visibility: hidden
+
+            .loading-text
+                opacity: 1
+                visibility: visible
+
+    .notice,
+    div.error,
+    div.updated
+        margin: 15px 0 0
+        padding: 10px 10px 10px 15px
+        font-size: 15px
+        font-weight: 500
+        line-height: 1.5
+
+    .activation-theme-msg
+        padding: 40px
+        text-align: center
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(-4.38%, #613BF9), color-stop(105.58%, #9D4BF1))
+        background: -o-linear-gradient(top, #613BF9 -4.38%, #9D4BF1 105.58%)
+        background: linear-gradient(180deg, #613BF9 -4.38%, #9D4BF1 105.58%)
+
+        h3
+            margin: 0
+            font-size: 20px
+            line-height: 1.2
+            font-weight: 500
+            color: #fff
+
+            span
+                font-size: 26px
+                font-weight: 600
+                margin-bottom: 8px
+                display: block
+
+// Server Status
+.noxfolio-server-status-boxes
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 30px
+
+    .status-box
+        background: $color-white
+        padding: 40px
+        margin-bottom: 50px
+
+    .single-status
+        display: grid
+        grid-template-columns: 1fr 2fr
+        gap: 20px
+        font-size: 15px
+        font-weight: 500
+        line-height: 1.4
+        padding-top: 15px
+        margin-top: 15px
+        border-top: 1px solid #E8E8E8
+
+        a
+            color: inherit
+
+        &:first-child
+            margin-top: 0
+
+        .content
+            color: $color-blue
+            font-weight: 600
+
+    h4
+        font-size: 22px
+        font-weight: 600
+        margin: 0 0 30px
+        color: $color-dark
+
+    h5
+        font-size: 18px
+        font-weight: 600
+        margin: 35px 0 30px
+        color: $color-dark
+        line-height: 1
+
+    .note
+        color: #696969
+        font-size: 14px
+        font-weight: 400
+        display: block
+        margin: 8px 0 0
+
+        a
+            font-weight: 600
+            color: $color-dark
+
+            &:hover
+                color: $color-blue
+
+    .message-info-error
+        color: red
+
+// Help Center
+.noxfolio-help-boxes
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    gap: 30px
+
+    .help-box
+        padding: 35px
+        text-align: center
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+
+        &.doc-box
+            background-color: #F6D246
+            background-size: cover
+            background-position: center
+
+        &.support-box
+            background-color: #B855E6
+            background-size: cover
+            background-position: center
+
+        img
+            margin-bottom: 30px
+
+    .help-center-btn
+        display: block
+        text-align: center
+        padding: 16px
+        background: $color-white
+        transition: 0.3s
+        margin: 0
+        font-size: 16px
+        font-weight: 600
+        line-height: 1
+        color: $color-dark
+        text-decoration: none
+
+        &:hover
+            color: $color-white
+            background-color: $color-dark
+
+    .video-box
+        position: relative
+        grid-column: 3/5
+        z-index: 1
+
+        &::before
+            content: ""
+            position: absolute
+            left: 0
+            top: 0
+            width: 100%
+            height: 100%
+            z-index: 1
+            background-color: $color-dark
+            opacity: 0.5
+
+        img
+            position: absolute
+            left: 0
+            top: 0
+            width: 100%
+            height: 100%
+            object-fit: cover
+            object-position: top center
+
+        a
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
+            z-index: 2
+            width: 65px
+            height: 65px
+            background-color: #fff
+            color: #02050A
+            text-decoration: none
+            display: flex
+            align-items: center
+            justify-content: center
+            border-radius: 50%
+
+            .dashicons
+                width: auto
+                height: auto
+                font-size: 30px
+
+// One Click
+.ocdi
+    max-width: 1250px
+    width: 100%
+    margin: 20px
+    font-family: $font-primary
+
+    .ocdi__content-container
+        padding: 20px 0
+
+    .ocdi__intro-text p
+        font-size: 16px
+        color: #0A1019
+
+    .ocdi__theme-about
+        -webkit-box-align: center
+        -ms-flex-align: center
+        align-items: center
+
+    .bottom-content
+        margin-top: 50px
+
+.ocdi__content-container-content
+    .ocdi-install-plugins-content-content
+        .plugin-item-wpforms-lite,
+        .plugin-item-google-analytics-for-wordpress,
+        .plugin-item-all-in-one-seo-pack
+            display: none
+
+        span.ocdi-recommended-star
+            display: -webkit-inline-box
+            display: -ms-inline-flexbox
+            display: inline-flex
+            -webkit-box-align: center
+            -ms-flex-align: center
+            align-items: center
+            -webkit-box-pack: center
+            -ms-flex-pack: center
+            justify-content: center
+            width: 20px
+            height: 20px
+            border-radius: 10px
+
+// Codestar Framework
+.csf-options
+    .csf-container
+        font-family: $font-primary
+
+.csf-field
+    .csf-title
+        width: 30%
+
+    .csf-fieldset
+        width: calc(70% - 45px)
+
+// Admin Menu Logo
+#toplevel_page_noxfolio_dashboard,
+#toplevel_page_edit-post_type-noxfolio_template
+    div.wp-menu-image img
+        max-width: 20px
+        opacity: 1
+        border-radius: 2px

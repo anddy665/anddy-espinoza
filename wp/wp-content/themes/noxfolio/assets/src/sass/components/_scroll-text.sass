@@ -1,0 +1,35 @@
+/** ===== Scroll Text ===== **/
+.noxfolio-scroll-text
+	display: flex
+	align-items: center
+	overflow: hidden
+	margin: 0
+	padding: 30px 0
+	white-space: nowrap
+	font-weight: 700
+	line-height: 1.2
+	+color(headline)
+	+bgcolor(secondary)
+	text-transform: uppercase
+
+	.scroll-text-inner
+		display: flex
+		align-items: center
+
+		.divider
+			line-height: 1
+			margin: 0 30px
+			font-size: 18px
+			+color(primary)
+
+	&.scroll-left
+		.scroll-text-inner
+			animation: scroll_to_left 35s linear infinite
+
+	&.scroll-right
+		.scroll-text-inner
+			animation: scroll_to_right 35s linear infinite
+
+	&.pause-on-hover:hover
+		.scroll-text-inner
+			animation-play-state: paused !important

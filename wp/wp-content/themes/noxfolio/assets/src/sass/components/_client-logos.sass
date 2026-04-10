@@ -1,0 +1,27 @@
+/** ===== Client Logos ===== **/
+.noxfolio-client-logos
+	+grid(5, 30px, 30px)
+
+	@include respond-below(lg)
+		grid-template-columns: repeat(3, 1fr)
+
+	@include respond-below(md)
+		grid-template-columns: repeat(2, 1fr)
+
+	.logo-wrap
+		position: relative
+		transition: 0.3s
+		display: flex
+		align-items: center
+		justify-content: center
+
+		img
+			transition: all 0.4s
+
+		a
+			position: absolute
+			left: 0
+			top: 0
+			width: 100%
+			height: 100%
+			z-index: 2

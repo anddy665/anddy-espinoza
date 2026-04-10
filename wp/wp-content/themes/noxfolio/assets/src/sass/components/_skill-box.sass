@@ -1,0 +1,81 @@
+/** ===== Skill Box ===== **/
+.noxfolio-skill-box
+	position: relative
+	line-height: 1
+	text-align: center
+
+	&,
+	.title,
+	.skill-icon,
+	.percentage,
+	.skill-icon-percentage
+		transition: 0.3s
+
+	.skill-icon
+		display: flex
+		align-items: center
+		justify-content: center
+		margin: 0
+		line-height: 1
+		+color(primary)
+		font-size: 55px
+
+		img
+			width: 55px
+			height: 55px
+
+	.percentage
+		display: block
+
+	&.design-one
+		border-radius: 14px
+		padding: 25px 10px 10px
+		+bgcolor(secondary)
+		+border()
+
+		.title
+			font-size: 18px
+			margin: 20px 0 20px
+
+		.percentage
+			padding: 10px
+			border-radius: 14px
+			+fsecondary(20px, 700)
+			line-height: 1.2
+			color: #656565
+			+bgcolor(dark-light)
+
+		&:hover
+			border-color: getColor(primary)
+
+			.percentage
+				+color(secondary)
+				+bgcolor(primary)
+
+	&.design-two
+		.skill-icon-percentage
+			+createbox(175px, 230px)
+			flex-direction: column
+			border-radius: 150px
+			+bgcolor(secondary)
+
+		.percentage
+			+fsecondary(30px, 400)
+			+color(primary)
+			line-height: 1.2
+			margin: 30px 0 0
+
+		.title
+			padding: 10px 10px
+			margin: 18px 0 0
+			+color(headline)
+			+bgcolor(tt)
+			+border()
+			border-radius: 150px
+			font-size: 20px
+
+		&:hover
+			.title
+				+color(headline)
+				+bgcolor(secondary)
+				border-color: getColor(secondary)

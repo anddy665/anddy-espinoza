@@ -1,0 +1,454 @@
+/** ===== Widget ===== **/
+.primary-sidebar
+	padding: 50px 40px
+	border-radius: 12px
+	+bgcolor(secondary)
+	border: 1px solid getColor(border)
+
+	@include respond-between(lg, xl)
+		padding: 45px 30px
+
+	@include respond-below(c480)
+		padding: 40px 30px
+
+.widget
+	&:not(:last-child)
+		margin-bottom: 50px
+
+	&.widget_block ul,
+	&.widget_block ol,
+	ul,
+	ol
+		padding: 0
+		list-style: none
+		margin: 0
+
+		li
+			margin: 0
+
+	.widget-title
+		font-size: 24px
+		margin: 0 0 30px
+		padding: 0 0 25px
+		position: relative
+
+		&::after
+			position: absolute
+			content: ''
+			left: 0
+			bottom: 0
+			width: 50px
+			height: 3px
+			+bgcolor(border)
+
+	a
+		+color(body)
+
+		&:hover
+			+color(primary)
+
+	&.widget_search
+		form
+			position: relative
+
+		input
+			padding: 0 55px 0 25px
+			+bgcolor(dark-light)
+
+		input[type=submit],
+		button[type=submit]
+			padding: 0
+			+color(primary)
+			background-color: transparent
+			+poRT(25px, 50%)
+			transform: translateY(-50%)
+			width: auto
+			height: auto
+
+	&.widget_block .wp-block-categories,
+	&.widget_block .wp-block-archives,
+	&.widget_categories,
+	&.widget_archive
+		li
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+			+fsecondary(16px, 500)
+			text-transform: capitalize
+			line-height: 1.4
+
+			&:not(:last-child)
+				margin-bottom: 18px
+
+			.children
+				margin-top: 18px
+				padding-left: 15px
+				width: 100%
+				flex: 0 0 100%
+
+			a
+				position: relative
+				max-width: calc(100% - 30px)
+				transition: 0.3s
+
+				&::before
+					content: "\f105"
+					+ffsw("Font Awesome 5 Pro", 14px, 400)
+					vertical-align: middle
+					margin-right: 8px
+
+				&:hover
+					padding-left: 5px
+
+	&.widget_calendar
+		caption
+			+fsw(16px, 600)
+			+color(dark)
+			+bgcolor(primary)
+			text-align: center
+			margin: 0
+			padding: 10px
+
+		table
+			margin: 0 0 15px
+			text-align: center
+
+			td
+				&#today
+					+color(dark)
+					+bgcolor(primary)
+
+		a
+			+color(primary)
+
+		.wp-calendar-nav
+			display: flex
+			justify-content: space-between
+			align-items: center
+			+fsw(15px, 500)
+
+			a
+				+color(headline)
+
+				&:hover
+					+color(primary)
+
+	&.widget_block .wp-block-latest-posts,
+	&.widget_pages,
+	&.widget_meta,
+	&.widget_nav_menu,
+	&.widget_recent_entries
+		li
+			&:not(:last-child)
+				margin-bottom: 10px
+
+			.children,
+			.sub-menu
+				margin-top: 10px
+				padding-left: 15px
+
+			a
+				+fsecondary(16px, 500)
+				line-height: 1.4
+				position: relative
+
+				&:hover
+					padding-left: 5px
+
+	&.widget_recent_entries li a
+		+color(white)
+		line-height: 1.8
+
+	&.widget_block .wp-block-latest-comments,
+	&.widget_recent_comments
+		li
+			&:not(:last-child)
+				margin-bottom: 10px
+
+			a
+				+color(headline)
+				+fsecondary(16px, 500)
+
+				line-height: 1.8
+
+				&:hover
+					+color(primary)
+
+	&.widget_rss
+		.rss-widget-title
+			+color(headline)
+
+		li
+			&:not(:last-child)
+				margin-bottom: 25px
+
+			a.rsswidget
+				+fsecondary(16px, 500)
+				display: block
+				+color(headline)
+				margin-bottom: 5px
+				line-height: 1.4
+
+				@include respond-below(c480)
+					font-size: 16px
+
+				&:hover
+					+color(primary)
+
+			span.rss-date,
+			cite
+				display: block
+				font-size: 14px
+				margin-bottom: 5px
+				font-weight: 500
+
+			cite
+				margin-top: 10px
+				margin-bottom: 0
+				display: block
+				+color(white)
+
+	.wp-block-rss__item
+		&:not(:last-child)
+			margin-bottom: 20px
+
+		.wp-block-rss__item-title a
+			+fsw(18px, 500)
+			display: block
+			+color(headline)
+			margin-bottom: 5px
+			line-height: 1.4
+
+			&:hover
+				+color(primary)
+
+		.wp-block-rss__item-publish-date
+			display: block
+			font-size: 14px
+			margin-bottom: 5px
+			font-weight: 500
+
+		.wp-block-rss__item-author
+			margin-bottom: 15px
+			display: block
+			+color(white)
+
+	&.widget_text
+		font-size: 16px
+
+		.wp-caption-text
+			padding: 0
+
+		@include respond-below(c480)
+			font-size: 15px
+
+	&.widget_tag_cloud
+		.tagcloud
+			display: flex
+			flex-wrap: wrap
+			margin: -10px 0 0 -10px
+
+			@include respond-below(c480)
+				margin: -8px 0 0 -8px
+
+			a
+				font-family: getFonts(secondary)
+				font-size: 16px !important
+				font-weight: 500
+				text-transform: capitalize
+				line-height: 1
+				padding: 10px 20px
+				margin: 10px 0 0 10px
+				transition: 0.3s
+				+color(body)
+				border: 1px solid getColor(border)
+				+bgcolor(border)
+				border-radius: 10px
+
+				@include respond-below(c480)
+					font-size: 15px !important
+					padding: 10px 15px
+					margin: 8px 0 0 8px
+
+				&:hover
+					+color(dark)
+					+bgcolor(primary)
+					border-color: getColor(primary)
+
+	.blocks-gallery-grid .blocks-gallery-image,
+	.blocks-gallery-grid .blocks-gallery-item,
+	.wp-block-gallery .blocks-gallery-image,
+	.wp-block-gallery .blocks-gallery-item
+		margin: 0 1em 1em 0
+
+	.blocks-gallery-grid .blocks-gallery-image:last-child,
+	.blocks-gallery-grid .blocks-gallery-item:last-child,
+	.wp-block-gallery .blocks-gallery-image:last-child,
+	.wp-block-gallery .blocks-gallery-item:last-child
+		margin-right: 0
+
+	.gallery
+		margin-bottom: 0
+
+	&.widget_block.widget_search
+		.wp-block-search__label
+			+fsw(16px, 500)
+			+color(headline)
+			display: block
+			margin-bottom: 15px
+
+		.wp-block-search__input
+			padding: 0 30px
+			height: 60px
+			border: 1px solid transparent
+			+bgcolor(dark-light)
+
+			&:focus
+				border-color: getColor(border)
+
+		.wp-block-search__button
+			min-width: 90px
+			height: 60px
+			position: static
+			font-size: 14px
+			padding: 0
+			transform: translateX(0)
+			+color(dark)
+			+bgcolor(primary)
+			border: 1px solid getColor(primary)
+
+			&:hover
+				+color(white)
+				border-color: getColor(white)
+
+		.wp-block-search__button-inside
+			.wp-block-search__inside-wrapper
+				border-color: getColor(border)
+
+			.wp-block-search__button
+				margin: 0
+				min-width: 60px
+
+	&.widget_block
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6
+			font-size: 24px
+			margin: 0 0 25px
+
+		&.widget_recent_entries
+			.wp-block-latest-posts__post-title
+				font-weight: 600
+				+color(headline)
+
+			.wp-block-latest-comments__comment-date
+				font-weight: 500
+
+	.recent-post-loop
+		li
+			display: flex
+			align-items: center
+			line-height: 1
+
+			@include respond-below(c480)
+				flex-direction: column
+				align-items: flex-start
+
+			&:not(:last-child)
+				padding-bottom: 30px
+				margin-bottom: 30px
+				border-bottom: 1px solid getColor(border)
+
+		.post-thumbnail
+			flex: 0 0 auto
+			margin-right: 25px
+
+			@include respond-below(c480)
+				margin-right: 0
+				margin-bottom: 30px
+
+			img
+				width: 85px
+				height: 85px
+				border-radius: 50%
+				object-fit: cover
+				object-position: center
+
+		.time
+			font-size: 15px
+			margin-bottom: 15px
+			text-transform: uppercase
+
+			i
+				margin-right: 10px
+				+color(headline)
+
+		.post-title
+			font-size: 18px
+			margin-bottom: 0
+			line-height: 1.4
+
+			a
+				+color(headline)
+
+				&:hover
+					+color(primary)
+
+	&.noxfolio-wp-cta
+		padding: 115px 40px 40px
+		+bgcolor(dark)
+		border-radius: 15px
+		position: relative
+		z-index: 1
+		overflow: hidden
+
+		@include respond-between(lg, xl)
+			padding: 115px 30px 30px
+
+		@include respond-below(c480)
+			padding: 115px 30px 30px
+
+		.cta-background
+			position: absolute
+			left: 0
+			top: 0
+			width: 100%
+			height: 100%
+			z-index: -1
+			background-size: cover
+			background-position: center
+
+			&::after
+				content: ""
+				position: absolute
+				left: 0
+				top: 0
+				width: 100%
+				height: 100%
+				z-index: -1
+				+bgcolor(dark-light)
+				opacity: 0.65
+
+		.widget-title
+			padding: 0
+			margin: 0
+			line-height: 1.3
+			font-weight: 700
+
+			@include respond-below(c480)
+				font-size: 20px
+
+			&::after
+				display: none
+
+		.subtitle
+			font-size: 16px
+			+color(primary)
+			margin-bottom: 15px
+
+		.noxfolio-button
+			margin-top: 40px
+			padding: 15px 25px

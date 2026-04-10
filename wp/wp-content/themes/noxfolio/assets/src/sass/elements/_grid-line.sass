@@ -1,0 +1,40 @@
+/** ===== Grid Line ===== **/
+.noxfolio-grid-lines
+	+poLT(0, 0)
+	width: 100%
+	height: 100%
+	z-index: -1
+
+	span
+		position: absolute
+		width: 1px
+		height: 100%
+		background-color: rgba(255, 255, 255, 0.05)
+
+		@include respond-above(lg)
+			@for $i from 1 through 9
+				&:nth-child(#{$i})
+					left: calc($i * (100% / 10))
+
+		@include respond-between(c480, lg)
+			&:nth-child(6),
+			&:nth-child(7),
+			&:nth-child(8),
+			&:nth-child(9)
+				display: none
+
+			@for $i from 1 through 5
+				&:nth-child(#{$i})
+					left: calc($i * (100% / 6))
+
+		@include respond-below(c480)
+			&:nth-child(5),
+			&:nth-child(6),
+			&:nth-child(7),
+			&:nth-child(8),
+			&:nth-child(9)
+				display: none
+
+			@for $i from 1 through 4
+				&:nth-child(#{$i})
+					left: calc($i * (100% / 5))

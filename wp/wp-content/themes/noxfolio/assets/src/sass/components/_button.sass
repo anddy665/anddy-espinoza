@@ -1,0 +1,63 @@
+/** ===== Button ===== **/
+.noxfolio-button
+	position: relative
+	z-index: 1
+	+fprimary(15px, 600)
+	line-height: 1.2
+	text-transform: capitalize
+	text-decoration: none
+	border: none
+	border-radius: 15px
+	+bgcolor(primary)
+	padding: 16px 35px
+	transition: 0.3s
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	cursor: pointer
+	overflow: hidden
+	--icon-spacing: 8px
+
+	&,
+	.button-text,
+	.button-icon
+		+color(dark)
+
+	.button-text
+		transition: 0.3s
+
+	.button-icon
+		position: relative
+		font-size: 16px
+		transition: 0.3s
+		display: flex
+		align-items: center
+		justify-content: center
+
+	&.icon-left
+		flex-direction: row-reverse
+
+		.button-icon
+			margin-right: var(--icon-spacing)
+
+	&.icon-right
+		.button-icon
+			margin-left: var(--icon-spacing)
+
+	&.icon-top
+		flex-direction: column-reverse
+
+		.button-icon
+			margin-bottom: var(--icon-spacing)
+
+	.fas
+		+ffw( "Font Awesome 5 Pro", 400 )
+		vertical-align: middle
+
+	&:hover
+		+bgcolor(dark)
+
+		&,
+		.button-text,
+		.button-icon
+			+color(white)

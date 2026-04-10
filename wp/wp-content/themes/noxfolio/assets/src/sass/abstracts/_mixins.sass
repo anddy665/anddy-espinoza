@@ -1,0 +1,205 @@
+// Make Container
+=container($width)
+	max-width: $width
+	margin-left: auto
+	margin-right: auto
+
+// Colors
+=color($type)
+	@if map-has-key($colors, $type)
+		color: map-get($colors, $type)
+	@else if ($type == 'tt')
+		color: transparent
+	@else
+		@warn 'Invalid color: #{$type}.'
+
+=bgcolor($type)
+	@if map-has-key($colors, $type)
+		background-color: map-get($colors, $type)
+	@else if ($type == 'tt')
+		background-color: transparent
+	@else
+		@warn 'Invalid color: #{$type}.'
+
+@function getColor($type)
+	@if map-has-key($colors, $type)
+		@return map-get($colors, $type)
+	@else if ($type == 'tt')
+		@return transparent
+	@else
+		@warn 'Invalid color: #{$type}.'
+
+// Border
+=border($size: 1px, $color: getColor(border), $style: solid)
+	border: $size $style $color
+
+// Font Family, Size Weight
+=fprimary($size, $weight)
+	font-family: getFonts(primary)
+	font-size: $size
+	font-weight: $weight
+
+=fsecondary($size, $weight)
+	font-family: getFonts(secondary)
+	font-size: $size
+	font-weight: $weight
+
+=ffs($family, $size)
+	font-family: $family
+	font-size: $size
+
+=fsw($size, $weight)
+	font-size: $size
+	font-weight: $weight
+
+=ffw($family, $weight)
+	font-family: $family
+	font-weight: $weight
+
+=ffsw($family, $size, $weight)
+	font-family: $family
+	font-size: $size
+	font-weight: $weight
+
+@function getFonts($type)
+	@if map-has-key($fonts, $type)
+		@return map-get($fonts, $type)
+	@else
+		@warn 'Invalid color: #{$type}.'
+
+// Grid
+=grid($column:3,$raw-gap: 30px, $column-gap: 30px)
+	display: grid
+	grid-template-columns: repeat($column, 1fr)
+	row-gap: $raw-gap
+	column-gap: $column-gap
+
+// Overly
+=overlay($bg-colour, $opacity)
+	position: relative
+	z-index: 1
+	&::before
+		position: absolute
+		content: ""
+		width: 100%
+		height: 100%
+		z-index: -1
+		top: 0
+		left: 0
+		opacity: $opacity
+		background-color: $bg-colour
+
+=visible($visibility, $opacity)
+	visibility: $visibility
+	opacity: $opacity
+
+// Absolute Middle
+=abs-middle()
+	position: absolute
+	left: 50%
+	top: 50%
+	transform: translate(-50%, -50%)
+
+// Positioning
+=poLT($left, $top: $left)
+	position: absolute
+	left: $left
+	top: $top
+
+=poLB($left, $bottom: $left)
+	position: absolute
+	left: $left
+	bottom: $bottom
+
+=poRT($right, $top: $right)
+	position: absolute
+	right: $right
+	top: $top
+
+=poRB($right, $bottom: $right)
+	position: absolute
+	right: $right
+	bottom: $bottom
+
+=tt($x, $y)
+	transform: translate($x, $y)
+
+// Mixing for Size
+=size($width, $height: $width)
+	width: $width
+	height: $height
+
+=createbox($width, $height, $circle: false, $inline-flex: true)
+	@if $inline-flex
+		display: inline-flex
+	@else
+		display: flex
+	align-items: center
+	justify-content: center
+	width: $width
+	height: $height
+	@if $circle
+		border-radius: 50%
+
+// Mixing for clearfix
+=clearfix()
+	&:after
+		display: block
+		clear: both
+		content: ""
+
+// Gap Left and Right
+=gapLR($property, $value)
+	#{$property}-left: $value
+	#{$property}-right: $value
+
+// Gap Top and Bottom
+=gapTB($property, $value)
+	#{$property}-top: $value
+	#{$property}-bottom: $value
+
+// Gap Padding
+=gapP($top, $right, $bottom: $top, $left:$right)
+	padding: $top $right $bottom $left
+
+// Gap Margin
+=gapM($top, $right, $bottom: $top, $left:$right)
+	margin: $top $right $bottom $left
+
+// Respond above.
+@mixin respond-above($breakpoint)
+	@if map-has-key($breakpoints, $breakpoint)
+		$breakpoint-value: map-get($breakpoints, $breakpoint)
+
+		@media only screen and (min-width: $breakpoint-value)
+			@content
+
+	@else
+		@warn 'Invalid breakpoint: #{$breakpoint}.'
+
+// Respond Below
+@mixin respond-below($breakpoint)
+	@if map-has-key($breakpoints, $breakpoint)
+		$breakpoint-value: map-get($breakpoints, $breakpoint)
+
+		@media only screen and (max-width: ($breakpoint-value - 1))
+			@content
+
+	@else
+		@warn 'Invalid breakpoint: #{$breakpoint}.'
+
+// Respond Between
+@mixin respond-between($lower, $upper)
+	@if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper)
+		$lower-breakpoint: map-get($breakpoints, $lower)
+		$upper-breakpoint: map-get($breakpoints, $upper)
+
+		@media only screen and (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1))
+			@content
+
+	@else
+		@if (map-has-key($breakpoints, $lower) ==false)
+			@warn 'Your lower breakpoint was invalid: #{$lower}.'
+
+		@if (map-has-key($breakpoints, $upper) ==false)
+			@warn 'Your upper breakpoint was invalid: #{$upper}.'

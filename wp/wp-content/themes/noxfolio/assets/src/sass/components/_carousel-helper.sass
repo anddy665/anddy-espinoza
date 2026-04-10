@@ -1,0 +1,181 @@
+/** ===== Carousel Helper ===== **/
+.noxfolio-carousel-active
+	--grid-gap: 30px
+
+	.slick-list
+		margin-left: calc(var(--grid-gap) / -2)
+		margin-right: calc(var(--grid-gap) / -2)
+
+	.noxfolio-carousel-item
+		padding-left: calc(var(--grid-gap) / 2)
+		padding-right: calc(var(--grid-gap) / 2)
+
+		&:not(:first-child)
+			display: none
+
+	.slick-list
+		.noxfolio-carousel-item
+			display: block
+
+	&.slick-vertical
+		.slick-list
+			margin-left: 0
+			margin-right: 0
+			margin-top: calc(var(--grid-gap) / -1)
+
+		.noxfolio-carousel-item
+			padding-left: 0
+			padding-right: 0
+			padding-top: var(--grid-gap)
+
+		.slick-slide
+			border: none
+
+	&.slick-dotted.slick-slider
+		margin-bottom: 0
+
+	.slick-slide img
+		display: inline-block
+
+.noxfolio-carousel-wrapper
+	position: relative
+	display: block !important
+
+	.noxfolio-carousel-arrows
+		--arrow-h-p: 0
+		--arrow-v-p: 50%
+		--arrow-space: 10px
+		--transform-x: 0px
+		--transform-y: -50%
+
+		.fas
+			font-family: "Font Awesome 5 Pro"
+
+		.slick-arrow
+			position: absolute
+			z-index: 8
+			top: var(--arrow-v-p)
+			left: var(--arrow-h-p)
+			transform: translate(var(--transform-x), var(--transform-y))
+			width: 50px
+			height: 50px
+			display: flex
+			align-items: center
+			justify-content: center
+			+color(secondary)
+			+bgcolor(primary)
+			font-size: 15px
+			transition: 0.3s
+			gap: 10px
+
+			i
+				font-weight: 400
+				font-size: 20px
+
+		.noxfolio-next-arrow
+			left: auto
+			right: var(--arrow-h-p)
+			transform: translate(calc( -1 * var(--transform-x) ), var(--transform-y))
+
+		&.same-position-h,
+		&.same-position-v
+			position: absolute
+			transform: translate(var(--transform-x), var(--transform-y))
+
+			.slick-arrow
+				position: relative
+				top: 0
+				left: 0
+				right: 0
+				transform: translate(0, 0)
+
+		&.same-position-h
+			--arrow-h-p: 50%
+			--arrow-v-p: 100%
+			--transform-x: -50%
+			--transform-y: -50%
+			display: flex
+			align-items: center
+			justify-content: center
+			left: var(--arrow-h-p)
+			top: var(--arrow-v-p)
+
+			.noxfolio-prev-arrow
+				margin: 0 calc( var(--arrow-space) / 2 ) 0 0
+
+			.noxfolio-next-arrow
+				margin: 0 0 0 calc( var(--arrow-space) / 2 )
+
+		&.same-position-v
+			--arrow-h-p: 100%
+			--arrow-v-p: 50%
+			--transform-x: -100%
+			--transform-y: -50%
+			left: var(--arrow-h-p)
+			top: var(--arrow-v-p)
+
+			.noxfolio-prev-arrow
+				margin: 0 0 calc( var(--arrow-space) / 2 ) 0
+
+			.noxfolio-next-arrow
+				margin: calc( var(--arrow-space) / 2 ) 0 0 0
+
+	.noxfolio-carousel-dots
+		--dots-h-p: 50%
+		--dots-v-p: 100%
+		--transform-x: -50%
+		--transform-y: 40px
+		position: absolute
+		left: var(--dots-h-p)
+		top: var(--dots-v-p)
+		transform: translate(var(--transform-x), var(--transform-y))
+		z-index: 9
+
+		&.sync-vertical
+			--dots-h-p: 100%
+			--dots-v-p: 50%
+			--transform-x: -50px
+			--transform-y: -50%
+
+			.slick-dots
+				flex-direction: column
+
+		.slick-dots
+			margin: 0
+			padding: 0
+			list-style: none
+			display: flex
+			justify-content: center
+			position: relative
+			bottom: 0
+			gap: 7px
+
+			li
+				width: 10px
+				height: 10px
+				border-radius: 50%
+				cursor: pointer
+				+bgcolor(secondary)
+				transition: 0.3s
+				margin: 0
+
+				&.slick-active
+					+bgcolor(primary)
+
+				&:first-child
+					margin-left: 0
+
+				&:last-child
+					margin-right: 0
+
+			button
+				display: none
+
+		&.dots-right
+			left: auto
+			right: 0
+			transform: translate(0)
+
+		&.dots-left
+			left: 0
+			transform: translate(0)

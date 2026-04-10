@@ -1,0 +1,184 @@
+/*===== Recent Post =====*/
+.noxfolio-post-boxes
+	display: grid
+	grid-template-columns: repeat(3, 1fr)
+	column-gap: 30px
+	row-gap: 60px
+	line-height: 1
+	--thumb-gap: 40px
+
+	@include respond-below(lg)
+		grid-template-columns: repeat(2, 1fr)
+
+	@include respond-below(md)
+		grid-template-columns: repeat(1, 1fr)
+
+	&.noxfolio-carousel-wrapper
+		display: block
+
+	.noxfolio-post-box
+		position: relative
+		overflow: hidden
+		min-width: 0
+		display: flex
+		flex-direction: column
+		transition: 0.3s
+
+		.post-content
+			display: flex
+			flex-direction: column
+			transition: 0.3s
+
+		.post-thumbnail
+			margin-bottom: var(--thumb-gap)
+			width: 100%
+			height: 320px
+			overflow: hidden
+			position: relative
+			max-width: 100%
+			transition: 0.3s
+
+			@include respond-below(md)
+				height: 320px
+
+			@include respond-below(c480)
+				height: 280px
+
+			img
+				width: 100%
+				height: 100%
+				object-fit: cover
+				transform: scale(1)
+				transition: 0.4s
+
+		&:hover
+			.post-thumbnail
+				img
+					transform: scale(1.1)
+
+		.post-title
+			+fsw(24px, 600)
+			line-height: 1.35
+			margin: 0
+
+			@include respond-below(md)
+				font-size: 22px
+
+			a
+				display: block
+
+				&:hover
+					+color(primary)
+
+		p
+			font-size: 16px
+			line-height: 1.85
+			margin: 25px 0 0
+
+		.post-meta
+			display: inline-flex
+			align-items: center
+
+			a
+				position: relative
+				+color(body)
+				font-size: 16px
+				text-transform: uppercase
+
+				@include respond-between(lg, xl)
+					font-size: 14px
+
+				@include respond-below(md)
+					font-size: 14px
+
+				&:hover
+					+color(primary)
+
+				i
+					margin-right: 10px
+
+				&:not(:first-child)
+					padding-left: 30px
+					margin-left: 30px
+
+					@include respond-below(xl)
+						padding-left: 20px
+						margin-left: 20px
+
+					&::before
+						content: ""
+						position: absolute
+						left: 0
+						top: 50%
+						transform: translate(-50%, -50%)
+						width: 5px
+						height: 5px
+						border-radius: 50%
+						+bgcolor(body)
+
+			.post-comments span
+				@include respond-below(c480)
+					display: none
+
+		.divider
+			display: block
+			width: 100%
+			height: 1px
+			+bgcolor(border)
+			margin: 35px 0
+
+		.read-more
+			display: inline-flex
+			align-items: center
+			margin-top: 30px
+			+fsw(16px, 600)
+			line-height: 1.2
+			+color(primary)
+
+			.read-more-icon
+				margin-left: 8px
+				transform: rotate(-45deg)
+
+				.fas
+					+ffw( "Font Awesome 5 Pro", 400 )
+
+		&.thumb-after
+			.post-thumbnail
+				order: 10
+				margin-bottom: 0
+				margin-top: var(--thumb-gap)
+
+		&.thumb-left
+			@include respond-above(md)
+				flex-direction: row
+				align-items: center
+
+				.post-thumbnail
+					flex: 0 0 auto
+					width: 240px
+					height: 205px
+					margin-bottom: 0
+					margin-right: var(--thumb-gap)
+
+		&.thumb-right
+			@include respond-above(md)
+				flex-direction: row-reverse
+				align-items: center
+
+				.post-thumbnail
+					flex: 0 0 auto
+					width: 240px
+					height: 205px
+					margin-bottom: 0
+					margin-left: var(--thumb-gap)
+
+		&.meta-before
+			.post-meta
+				order: -2
+
+			.divider
+				order: -1
+
+	.noxfolio-pagination
+		padding: 0
+		grid-column: 1/-1

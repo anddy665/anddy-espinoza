@@ -1,0 +1,66 @@
+/** ===== Pagination ===== **/
+.noxfolio-pagination
+	flex: 0 0 auto
+	width: 100%
+	display: flex
+	justify-content: flex-start
+	flex-wrap: wrap
+	list-style: none
+	clear: both
+	margin: 0
+	padding: 0
+	gap: 10px
+
+	li
+		margin: 0 !important
+
+	.page-numbers
+		height: 50px
+		width: 50px
+		padding: 0
+		+fsw(16px, 500)
+		display: flex
+		align-items: center
+		justify-content: center
+		border: 1px solid getColor(border)
+		border-radius: 50%
+		transition: 0.3s
+		+color(body)
+		background-color: transparent
+
+		&.current,
+		&:not(.dots):hover
+			+color(dark)
+			+bgcolor(primary)
+			border-color: getColor(primary)
+
+.page-links
+	display: flex
+	align-items: center
+	flex-wrap: wrap
+	line-height: 1
+	clear: both
+
+	.page-links-title
+		+color(body)
+		font-weight: 700
+		margin-right: 10px
+
+	.post-page-numbers
+		width: 30px
+		height: 30px
+		border: 1px solid getColor(border)
+		display: flex
+		align-items: center
+		justify-content: center
+		font-size: 14px
+		margin-left: 5px
+		transition: 0.3s
+		+color(body)
+		background-color: transparent
+
+		&:hover,
+		&.current
+			+color(dark)
+			+bgcolor(primary)
+			border-color: getColor(primary)

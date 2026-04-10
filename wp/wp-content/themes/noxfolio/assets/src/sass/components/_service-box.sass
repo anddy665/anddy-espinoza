@@ -1,0 +1,90 @@
+/** ===== Service Box ===== **/
+.noxfolio-service-box
+	position: relative
+	line-height: 1
+	display: flex
+	padding: 35px 50px
+	+border(1.2px)
+	border-radius: 15px
+	+bgcolor(secondary)
+
+	@include respond-below( xl )
+		padding: 35px
+
+	@include  respond-below(md)
+		padding: 30px
+
+	@include respond-below(c480)
+		flex-direction: column
+
+	&,
+	.title,
+	.description,
+	.service-index,
+	.service-url
+		transition: 0.3s
+
+	.title,
+	.description
+		margin: 0
+
+	.service-content
+		margin-right: 40px
+
+		@include  respond-below(md)
+			margin-right: 30px
+
+		@include respond-below(c480)
+			margin-right: 0
+			margin-bottom: 30px
+
+	.service-index
+		+color(body)
+		+fsecondary(24px, 400)
+		line-height: 1.2
+		margin-right: 45px
+
+		@include  respond-below(md)
+			margin-right: 30px
+
+		@include respond-below(c480)
+			margin-right: 0
+			margin-bottom: 30px
+
+	.title
+		font-size: 24px
+
+		@include respond-below( xl )
+			font-size: 20px
+
+	.description
+		+fsw(16px, 400)
+		line-height: 1.8
+		margin-top: 10px
+
+	.service-url
+		+createbox(50px, 50px, true)
+		+border(1.2px)
+		+bgcolor(dark-light)
+		font-size: 16px
+		line-height: 1
+		margin-left: auto
+		align-self: center
+		flex: 0 0 auto
+
+		@include respond-below(c480)
+			align-self: flex-start
+			margin-left: 0
+
+		i
+			rotate: -45deg
+
+	&:hover
+		border-color: getColor(primary)
+
+		.service-url
+			+bgcolor(primary)
+			+color(secondary)
+
+		.service-index
+			+color(headline)

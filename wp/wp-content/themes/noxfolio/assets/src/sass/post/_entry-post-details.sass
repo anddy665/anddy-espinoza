@@ -1,0 +1,306 @@
+/** ===== Entry Post Details ===== **/
+.entry-post-details
+	+gapP(50px, 40px)
+	border-radius: 12px
+	+bgcolor(secondary)
+	+border()
+
+	@include respond-below(md)
+		+gapP(40px, 30px)
+
+	.entry-media
+		overflow: hidden
+		border-radius: 10px
+		+gapM(0, -25px, 45px)
+
+		@include respond-below(md)
+			+gapM(0, -15px, 35px)
+
+	.entry-content-top
+		margin-bottom: 50px
+
+	.entry-content
+		.post-password-form
+			label
+				width: 100%
+				margin: 0
+
+			p
+				position: relative
+
+				&:last-child
+					margin-bottom: 0
+
+			input
+				margin-top: 10px
+				border: 1px solid getColor(primary)
+				border-radius: 0
+
+				&[type="submit"]
+					position: absolute
+					width: auto
+					height: 60px
+					bottom: 0
+					right: 0
+					padding: 0 45px
+					border-width: 1
+					border-radius: 0
+
+					&:hover
+						+color(white)
+						+bgcolor(dark)
+
+				&[type="password"]
+					padding-right: 140px
+
+		.wp-block-categories-list,
+		.wp-block-archives-list,
+		.wp-block-latest-comments,
+		.wp-block-latest-posts,
+		.wp-block-rss,
+		.wp-block-page-list
+			padding: 0
+
+			&,
+			li
+				list-style: none
+
+		.wp-block-search__button
+			+color(dark)
+			+bgcolor(primary)
+			border: none
+
+	.post-categories
+		display: flex
+		flex-wrap: wrap
+		gap: 10px
+		+gapM(0, 0, 30px)
+		+gapP(0, 0)
+		list-style: none
+
+		li
+			margin: 0
+
+		a
+			+fsecondary(15px, 500)
+			text-transform: capitalize
+			line-height: 1
+			padding: 10px 20px
+			+color(body)
+			+bgcolor(border)
+			border-radius: 10px
+
+			&:hover
+				+color(dark)
+				+bgcolor(primary)
+
+	.post-date-author
+		display: flex
+		align-items: center
+		line-height: 1
+
+		@include respond-below(c480)
+			flex-wrap: wrap
+
+		.author-img
+			margin-right: 20px
+
+			img
+				border-radius: 50%
+
+		.post-by
+			margin-right: 70px
+
+			@include respond-below(md)
+				margin-right: 40px
+
+			@include respond-below(c480)
+				margin-right: 0
+
+		.post-date
+			@include respond-below(c480)
+				flex: 0 0 100%
+				margin-top: 25px
+
+		span
+			+fsecondary(16px, 400)
+			display: block
+			margin-bottom: 15px
+
+			@include respond-below(md)
+				font-size: 14px
+
+		.text-big
+			+fsecondary(22px, 500)
+			+color(white)
+			margin: 0
+
+			@include respond-below(lg)
+				font-size: 20px
+
+			@include respond-below(md)
+				font-size: 18px
+
+	.entry-tags-share
+		margin-top: 50px
+		+gapTB(padding, 30px)
+		display: flex
+		flex-wrap: nowrap
+		gap: 35px
+		border-top: 1px solid getColor(border)
+		border-bottom: 1px solid getColor(border)
+
+		@include respond-below(md)
+			flex-direction: column
+			gap: 30px
+
+		.post-share-wrap
+			flex: 0 0 auto
+
+		.post-tags-wrap,
+		.post-share-wrap
+			display: flex
+			flex-wrap: wrap
+			align-items: center
+			gap: 10px
+
+			@include respond-below(c480)
+				gap: 8px
+
+			span
+				+color(white)
+				+fsecondary(16px, 500)
+				margin-right: 10px
+
+				@include respond-below(c480)
+					font-size: 14px
+					margin-right: 5px
+
+		.post-tags-wrap
+			a
+				+fsecondary(15px, 500)
+				line-height: 1
+				padding: 10px 20px
+				+color(body)
+				+bgcolor(border)
+				border-radius: 10px
+
+				&:hover
+					+color(dark)
+					+bgcolor(primary)
+
+		.post-share-wrap
+			justify-content: flex-end
+			margin-left: auto
+
+			a
+				+createbox(35px, 35px, true)
+				font-size: 13px
+				line-height: 1
+				+color(body)
+				+bgcolor(dark-light)
+
+				&:hover
+					+color(dark)
+					+bgcolor(primary)
+
+	.entry-author-info
+		+bgcolor(dark-light)
+		+gapP(30px, 45px)
+		+gapM(50px, -25px, 0)
+		display: flex
+		align-items: center
+		border-radius: 10px
+		gap: 40px
+
+		@include respond-below(md)
+			+gapM(50px, -15px, 0)
+
+		@include respond-below(md)
+			flex-direction: column
+			align-items: flex-start
+			+gapP(30px, 30px)
+
+		.author-avatar
+			flex: 0 0 160px
+
+			img
+				border-radius: 50%
+
+		.name
+			+fsw(22px, 700)
+			margin: 0 0 15px
+
+		p
+			margin: 0
+
+		.user-links
+			display: flex
+			align-items: center
+			list-style: none
+			margin: 25px 0 0
+			padding: 0
+
+			li
+				margin: 0 20px 0 0
+
+			a
+				font-size: 16px
+				+color(body)
+
+				&:hover
+					+color(body)
+
+	.entry-post-navigation
+		margin-top: 20px
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+
+		.next-post,
+		.prev-post
+			max-width: calc( 50% - 15px )
+			flex: 0 0 calc( 50% - 15px )
+			margin-top: 30px
+			line-height: 1
+			display: flex
+			align-items: center
+			gap: 25px
+
+			@include respond-below(md)
+				max-width: 100%
+				flex: 0 0 100%
+
+			@include respond-between(c480, md)
+				max-width: 60%
+
+		.next-post
+			text-align: right
+			margin-left: auto
+			flex-direction: row-reverse
+
+		.post-thumbnail
+			flex: 0 0 65px
+
+			img
+				width: 65px
+				height: 65px
+				border-radius: 50%
+				object-fit: cover
+				object-position: center
+
+		.post-title
+			font-size: 18px
+			margin: 15px 0 0
+			word-break: break-word
+
+			a
+				display: inline
+
+		.post-date
+			+fsw(14px, 400)
+			text-transform: uppercase
+
+			i
+				margin-right: 8px
+				+color(white)

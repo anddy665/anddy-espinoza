@@ -1,0 +1,323 @@
+/** ===== Reset ===== **/
+body,
+html
+	max-width: 100%
+	-moz-osx-font-smoothing: grayscale
+	-webkit-font-smoothing: antialiased
+
+body
+	+color(body)
+	+fprimary( 16px, 400 )
+	line-height: 1.85
+	overflow-x: hidden
+	word-wrap: break-word
+	+bgcolor(dark-light)
+*
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+
+*,
+::after,
+::before
+	box-sizing: border-box
+
+*:focus
+	outline: none
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section
+	display: block
+
+i,
+span,
+a
+	display: inline-block
+
+dl
+	margin-bottom: 28px
+
+dt
+	font-weight: 700
+
+dd
+	margin: 0 0 28px
+
+pre
+	+bgcolor(dark)
+	max-width: 100%
+	overflow: auto
+	padding: 30px
+	white-space: pre-wrap
+	margin: 20px 0
+
+pre,
+code,
+kbd,
+tt,
+var
+	font-size: 87.5%
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace
+	font-size: 15px
+
+abbr,
+acronym
+	border-bottom: 1px dotted getColor(dark)
+	cursor: help
+
+mark,
+ins
+	+color(headline)
+	+bgcolor(dark)
+	text-decoration: none
+	padding: 5px
+
+del
+	display: inline-flex
+	text-decoration: line-through
+
+big
+	font-size: 125%
+
+b,
+strong
+	font-weight: bolder
+
+small
+	font-size: 80%
+
+sub,
+sup
+	position: relative
+	font-size: 75%
+	line-height: 0
+	vertical-align: baseline
+
+sub
+	bottom: -0.25em
+
+sup
+	top: -0.5em
+
+hr
+	margin: 20px 0
+	border: 0
+	border-top: 1px solid getColor(border)
+	height: 0
+
+table
+	margin: 0 0 20px
+	width: 100%
+	border-collapse: collapse
+	border-spacing: 0
+
+table,
+th,
+td
+	border: 1px solid getColor(border)
+
+th
+	text-align: inherit
+	text-align: -webkit-match-parent
+	font-weight: 700
+	+color(headline)
+
+th,
+td
+	padding: 12px
+	font-size: 15px
+
+img
+	max-width: 100%
+	height: auto
+	vertical-align: middle
+	border-style: none
+	user-select: none
+
+iframe
+	width: 100%
+	display: block
+
+embed,
+iframe,
+object
+	max-width: 100%
+
+figure
+	margin: 20px 0
+
+svg
+	position: relative
+	height: 1em
+	width: 1em
+	fill: currentColor
+
+ol,
+ul
+	padding: 0 0 0 20px
+	margin: 0 0 20px
+	list-style-position: inside
+
+	li
+		li
+			list-style-position: inside
+
+		&:not(:last-child)
+			margin-bottom: 10px
+
+		& > ol,
+		& > ul
+			margin-top: 10px
+			margin-bottom: 0
+
+a
+	+color(primary)
+	transition: 0.3s
+	text-decoration: none
+	background-color: transparent
+
+	&:hover
+		+color(primary)
+
+	&:hover,
+	&:focus,
+	&:active
+		text-decoration: none
+		outline: none
+		box-shadow: none
+
+	&:active
+		color: inherit
+
+.fal,
+.far
+	font-family: "Font Awesome 5 Pro" !important
+
+p
+	margin: 0 0 20px
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+	font-family: getFonts(secondary)
+	font-weight: 500
+	line-height: 1.2
+	letter-spacing: -0.025em
+	margin: 0 0 20px
+
+	&,
+	a
+		+color(headline)
+h1
+	font-size: 60px
+
+h2
+	font-size: 48px
+
+h3
+	font-size: 30px
+
+h4
+	font-size: 24px
+
+h5
+	font-size: 20px
+
+h6
+	font-size: 16px
+
+::-webkit-scrollbar
+	background-color: #c0c0c2
+	width: 6px
+
+::-webkit-scrollbar-thumb
+	background-color: #000
+
+/** ===== Common Classes ===== **/
+.overflow-hidden
+	overflow: hidden
+
+.overflow-x-hidden
+	overflow-x: hidden
+
+.overflow-y-hidden
+	overflow-y: hidden
+
+.elementor-text-editor
+	p
+		&:last-child
+			margin: 0
+
+.elementor-widget-text-editor
+	p
+		&:last-child
+			margin: 0
+
+.elementor-heading-title
+	margin: 0
+
+.elementor-icon-list-icon,
+.elementor-icon-list-text
+	transition: 0.3s
+
+.list-icon-regular
+	.elementor-icon-list-icon i
+		+ffw( "Font Awesome 5 Pro", 400 )
+
+.fontawesome-regular-icon
+	.fas
+		+ffw( "Font Awesome 5 Pro", 400 )
+
+.clearfix
+	&::after
+		display: block
+		clear: both
+		content: ""
+
+.elementor-icon-wrapper
+	line-height: 1
+
+.e-n-accordion-item-title-icon
+	span
+		display: inline-flex
+		align-items: center
+		justify-content: center
+
+	span,
+	i
+		transition: 0.3s
+
+/** ===== Sticky ===== **/
+.noxfolio-sticky
+	&.noxfolio-sticky-active
+		position: fixed !important
+		top: 0
+		left: 0 !important
+		width: 100%
+		z-index: 2
+		animation: sticky_section 1.2s
+		transition: 0.5s
+
+.noxfolio-sticky-gap
+	display: none
+
+	&.active-sticky-gap
+		display: block
+
+.admin-bar
+	.noxfolio-sticky.noxfolio-sticky-active
+		top: 32px
+
+		@media screen and (max-width: 782px)
+			top: 46px

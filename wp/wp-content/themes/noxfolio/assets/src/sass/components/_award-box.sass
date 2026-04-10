@@ -1,0 +1,73 @@
+/** ===== Award Box ===== **/
+.noxfolio-award-box
+	position: relative
+	line-height: 1
+	padding: 45px 30px
+	+border()
+	transition: 0.3s
+
+	@include respond-between(lg, xl)
+		padding: 40px 25px
+
+	@include respond-below(c480)
+		padding: 40px 25px
+
+	.tag,
+	.year,
+	.count,
+	.name
+		transition: 0.3s
+
+	.year
+		+poRT(0, 10px)
+		padding: 10px 30px
+		+fsecondary(18px, 500)
+		+color(dark)
+		+bgcolor(primary)
+		+visible(hidden, 0)
+
+	.tag
+		display: block
+		+fsecondary(46px, 700)
+		+color(tt)
+		-webkit-text-stroke: 1px getColor(headline)
+		margin-bottom: 25px
+
+		@include respond-between(lg, xl)
+			font-size: 42px
+
+		@include respond-below(c480)
+			font-size: 42px
+
+	.count
+		+fsecondary(34px, 700)
+		+color(headline)
+
+		@include respond-between(lg, xl)
+			font-size: 32px
+
+		@include respond-below(c480)
+			font-size: 32px
+
+	.name
+		+fsecondary(16px, 500)
+		text-transform: uppercase
+		+color(headline)
+
+		@include respond-between(lg, xl)
+			font-size: 14px
+
+		@include respond-below(c480)
+			font-size: 14px
+
+		&::before
+			content: "/"
+			margin: 0 8px
+
+	&:hover
+		.tag
+			+color(headline)
+
+		.year
+			top: 0
+			+visible(visible, 1)

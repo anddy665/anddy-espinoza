@@ -1,0 +1,127 @@
+/** ===== Entry Post ===== **/
+.entry-post
+	position: relative
+	margin-bottom: 60px
+	line-height: 1
+
+	&:last-child
+		margin-bottom: 0
+
+	.entry-media
+		margin-bottom: 40px
+
+	.entry-post-meta
+		display: flex
+		flex-wrap: wrap
+		+fprimary( 16px, 400 )
+		text-transform: uppercase
+		margin-bottom: 15px
+
+		@include respond-below(xl)
+			font-size: 14px
+
+		i
+			margin-right: 10px
+
+			@include respond-below(c480)
+				margin-right: 8px
+
+		&,
+		a
+			+color(body)
+
+		a:hover
+			+color(white)
+
+		& > span
+			margin-bottom: 15px
+
+			&:not(:last-child)
+				position: relative
+				padding-right: 50px
+
+				@include respond-below(c480)
+					padding-right: 30px
+
+				&::before
+					content: ""
+					position: absolute
+					right: 25px
+					top: 50%
+					transform: translate(50%, -50%)
+					width: 5px
+					height: 5px
+					border-radius: 50%
+					+bgcolor(body)
+
+					@include respond-below(c480)
+						right: 15px
+
+		.comments span
+			@include respond-below(md)
+				display: none
+
+	.post-title
+		font-size: 30px
+		line-height: 1.4
+		margin: 0
+		word-wrap: break-word
+
+		@include respond-below(xl)
+			font-size: 28px
+
+		@include respond-below(md)
+			font-size: 24px
+
+		@include respond-below(c480)
+			font-size: 22px
+
+		a
+			display: inline
+
+	p
+		font-size: 16px
+		margin: 25px 0 0
+		line-height: 2
+
+	.read-more
+		display: inline-flex
+		align-items: center
+		margin-top: 30px
+		+fsw(16px, 500)
+		line-height: 1.2
+		+color(primary)
+
+		span
+			text-decoration: underline
+			text-underline-offset: 4px
+			text-decoration-color: currentColor
+
+		i
+			position: relative
+			margin-left: 10px
+			transform: rotate(-45deg)
+
+		&:hover
+			+color(white)
+
+	&.no-thumbnail,
+	&.sticky
+		.entry-summary
+			padding: 50px
+			+bgcolor(secondary)
+			+border()
+			border-radius: 10px
+
+			@include respond-below(md)
+				padding: 40px 30px
+				border-width: 2px
+
+	&.sticky
+		.entry-media
+			margin: 0
+
+		.entry-summary
+			border: none
+			border-left: 3px solid getColor(primary)
+			border-radius: 0

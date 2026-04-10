@@ -1,0 +1,237 @@
+/** ===== Pricing Table ===== **/
+.noxfolio-pricing-table
+	position: relative
+	line-height: 1
+	+bgcolor(secondary)
+
+	.table-title
+		margin: 0
+
+	.table-subtitle
+		display: block
+		+color(body)
+		margin-top: 10px
+
+	.table-desc
+		display: block
+		+fprimary(16px, 400)
+		line-height: 1.85
+		+gapM(0, 0, 35px, 0)
+
+	.table-price
+		display: flex
+		align-items: flex-end
+
+	.features-list
+		margin: 0
+		padding: 0
+		list-style: none
+
+		li
+			display: flex
+			align-items: center
+
+			&:not(:last-child)
+				margin-bottom: 30px
+
+		.feature-text
+			line-height: 1.2
+			+color(white)
+
+		i
+			+ffw( 'Font Awesome 5 Pro', 400 )
+
+	.table-badge
+		+poRT(0, 0)
+		padding: 5px 10px
+		+fsecondary(16, 500)
+		+color(dark)
+		+bgcolor(primary)
+
+	&.layout-one
+		padding: 10px
+		border-radius: 15px
+
+		.table-header
+			+gapP(45px, 40px)
+			+bgcolor(dark-light)
+			+border()
+			border-radius: 15px
+
+			@include respond-below(xl)
+				+gapP(45px, 30px)
+
+		.table-title
+			font-size: 24px
+
+		.table-subtitle
+			+fprimary(16px, 400)
+			line-height: 1.4
+
+		.table-price
+			+fsecondary(48px, 500)
+			line-height: 1
+			+color(primary)
+			margin-top: 25px
+			letter-spacing: -0.025em
+
+			@include respond-below(xl)
+				font-size: 38px
+
+			.period
+				+fsw(16px, 400)
+				+color(body)
+				margin-bottom: 5px
+
+		.table-content
+			+gapP(45px, 40px, 35px)
+
+			@include respond-below(xl)
+				+gapP(45px, 30px, 35px)
+
+		.features-list
+			.feature-text
+				+fsw(18px, 500)
+
+				@include respond-below(xl)
+					font-size: 16px
+
+			.feature-icon
+				font-size: 18px
+				+color(primary)
+				margin-right: 15px
+
+		.noxfolio-button
+			margin-top: 40px
+			+bgcolor(border)
+
+			&,
+			.button-text,
+			.button-icon
+				+color(body)
+
+			&:hover
+				+bgcolor(primary)
+
+				&,
+				.button-text,
+				.button-icon
+					+color(dark)
+
+		.table-badge
+			top: 10px
+			right: 10px
+			border-radius: 0 15px 0 0
+
+	&.layout-two
+		display: flex
+		padding: 50px
+		border-radius: 10px
+
+		@include respond-below(md)
+			flex-direction: column
+			padding: 50px 35px
+
+		.table-header
+			flex: 0 0 40%
+			max-width: 40%
+
+			@include respond-below(md)
+				flex: 0 0 auto
+				max-width: 100%
+
+		.table-content
+			flex: 0 0 60%
+			max-width: 60%
+			padding-left: 30px
+
+			@include respond-below(md)
+				flex: 0 0 auto
+				max-width: 100%
+				padding-left: 0
+				margin-top: 50px
+
+		.title-wrap
+			padding-left: 55px
+			position: relative
+
+			i
+				+poLT(0, 0)
+				+createbox(33px, 33px, true)
+				+color(dark)
+				+bgcolor(primary)
+
+		.title-line
+			margin-top: 50px
+			margin-left: 50px
+
+			svg
+				width: 90px
+				height: 65px
+				fill: getColor(tt)
+
+				path
+					stroke: getColor(primary)
+
+		.table-title
+			+fsw(26px, 700)
+
+		.table-subtitle
+			+fsecondary(15px, 400)
+
+		.table-price
+			+fsecondary(50px, 700)
+			line-height: 1
+			+color(headline)
+			margin-top: 35px
+
+			.period
+				+fsw(16px, 500)
+				+color(body)
+				margin-left: 10px
+				margin-bottom: 5px
+
+		.features-list
+			li
+				justify-content: space-between
+
+			.feature-text
+				+fsecondary(18px, 400)
+				order: -1
+
+				@include respond-below(c480)
+					font-size: 16px
+
+			.feature-icon
+				+createbox(25px, 25px, true)
+				font-size: 12px
+				+color(headline)
+				+bgcolor(border)
+				margin-left: 15px
+				transition: 0.3s
+
+			li:hover .feature-icon
+				+color(secondary)
+				+bgcolor(primary)
+
+		.noxfolio-button
+			margin-top: 50px
+			+bgcolor(border)
+			border-radius: 7px
+			text-transform: uppercase
+
+			&,
+			.button-text,
+			.button-icon
+				+color(headline)
+
+			&:hover
+				+bgcolor(primary)
+
+				&,
+				.button-text,
+				.button-icon
+					+color(secondary)
+
+		.table-badge
+			border-radius: 0 10px 0 0

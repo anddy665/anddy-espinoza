@@ -1,0 +1,95 @@
+/** ===== Mini Search ===== **/
+.noxfolio-search-form
+	display: flex
+
+	.search-submit
+		padding: 0
+		width: 80px
+		flex: 0 0 80px
+		height: 70px
+
+		i
+			margin: 0
+
+.noxfolio-search-wrapper
+	display: flex
+	align-items: center
+	justify-content: flex-start
+
+	.search-icon
+		cursor: pointer
+		font-size: 18px
+		line-height: 1
+		+color(headline)
+		padding: 8px
+
+	.noxfolio-search-canvas
+		position: fixed
+		left: 50%
+		top: 50%
+		width: 65%
+		transition: 0.65s ease
+		padding: 35px
+		z-index: 99999
+		transform: translate(-50%, -50%) scale(0.5)
+		opacity: 0
+		visibility: hidden
+
+		@include respond-below(lg)
+			width: 80%
+
+		@include respond-below(md)
+			width: 100%
+
+		@include respond-below(c480)
+			padding: 30px
+
+		.canvas-inner
+			position: relative
+
+		.search-close
+			position: absolute
+			+color(headline)
+			right: 35px
+			top: 0
+			font-size: 25px
+			line-height: 1
+			padding: 5px
+			cursor: pointer
+
+			@include respond-below(c480)
+				font-size: 20px
+
+		input
+			background-color: transparent
+			border: none
+			border-bottom: 1px solid getColor(headline)
+			border-radius: 0
+			padding: 0
+			+color(headline)
+
+			&:focus
+				border-color: transparent
+				border-bottom-color: getColor(headline)
+
+	.noxfolio-search-overly
+		position: fixed
+		left: 0
+		top: 0
+		width: 100vw
+		height: 100vh
+		transition: 0.55s ease
+		background-color: #000000
+		z-index: 99998
+		opacity: 0
+		visibility: hidden
+
+	&.show-search-canvas
+		.noxfolio-search-canvas
+			opacity: 1
+			visibility: visible
+			transform: translate(-50%, -50%) scale(1)
+
+		.noxfolio-search-overly
+			opacity: 1
+			visibility: visible

@@ -1,0 +1,276 @@
+/** ===== Info Box ===== **/
+.noxfolio-info-box
+	position: relative
+	transition: 0.3s
+	line-height: 1
+	z-index: 1
+	padding: 35px
+	+bgcolor(secondary)
+	overflow: hidden
+	--badge-h-offset: 0px
+	--badge-v-offset: 0px
+	--badge-rotate: 0deg
+	--icon-space: 35px
+
+	&::before
+		+poLT(0, 0)
+		content: ""
+		width: 100%
+		height: 100%
+		z-index: -1
+		transition: 0.3s
+		opacity: 0
+		visibility: hidden
+
+	.left-bordered,
+	.right-bordered,
+	.top-bordered,
+	.bottom-bordered
+		position: absolute
+		transition: all 0.4s ease-out 0s
+		+bgcolor(primary)
+		width: 0
+		height: 0
+
+	.left-bordered
+		left: 0
+		top: 0
+		width: 3px
+
+	.right-bordered
+		right: 0
+		top: 0
+		width: 3px
+
+	.top-bordered
+		top: 0
+		left: 0
+		height: 3px
+
+	.bottom-bordered
+		bottom: 0
+		left: 0
+		height: 3px
+
+	&.text-center
+		text-align: center
+
+		.box-title
+			justify-content: center
+
+	&.text-right
+		text-align: right
+
+		.box-title
+			justify-content: flex-end
+
+	&.text-left
+		text-align: left
+
+	&.icon-top
+		.box-icon
+			margin-bottom: var(--icon-space)
+
+	&.icon-left
+		display: flex
+		align-items: flex-start
+
+		.box-icon
+			margin-right: var(--icon-space)
+
+		&.icon-back-top
+			@include respond-below(c480)
+				justify-content: flex-start !important
+
+				.box-icon
+					margin-right: 0
+					margin-bottom: var(--icon-space)
+
+	&.icon-right
+		display: flex
+		align-items: flex-start
+		flex-direction: row-reverse
+
+		.box-icon
+			margin-left: var(--icon-space)
+
+		.box-title
+			flex-direction: row-reverse
+
+		&.text-left
+			.box-title
+				justify-content: flex-end
+
+		&.text-right
+			.box-title
+				justify-content: flex-start
+
+		&.icon-back-top
+			@include respond-below(c480)
+				.box-icon
+					margin-left: 0
+					margin-bottom: var(--icon-space)
+
+	&.icon-left,
+	&.icon-right
+		&.icon-back-top
+			@include respond-below(c480)
+				flex-direction: column
+
+				.box-title
+					flex-direction: column
+
+				&.text-right
+					align-items: flex-end !important
+
+					.box-title
+						align-items: flex-end !important
+
+				&.text-center
+					align-items: center !important
+
+					.box-title
+						align-items: center !important
+
+				&.text-left
+					align-items: flex-start !important
+
+					.box-title
+						align-items: flex-start !important
+
+	.box-content
+		flex-grow: 1
+
+	.box-icon
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		transition: 0.3s
+		font-size: 45px
+		+color(primary)
+		flex: 0 0 auto
+		position: relative
+		z-index: 1
+
+		img
+			width: 60px
+			height: 60px
+			object-fit: cover
+			object-position: center
+
+	.box-title
+		display: flex
+		align-items: center
+		font-size: 20px
+		line-height: 1.4
+		margin: 0 0 15px
+		transition: 0.3s
+
+		a
+			display: block
+			color: inherit
+			transition: none
+
+			&:hover
+				color: inherit
+
+	.title-divider
+		display: block
+		width: 100%
+		height: 1px
+		+bgcolor(border)
+		transition: 0.3s
+		margin: 0 0 15px
+
+	.description
+		margin: 0
+		+fsw(15px, 400)
+		line-height: 1.85
+		transition: 0.3s
+
+	.read-more-btn
+		display: inline-flex
+		align-items: center
+		margin-top: 30px
+		+fsw(15px, 500)
+		+color(headline)
+		transition: 0.3s
+
+		.fas
+			font-family: "Font Awesome 5 Pro"
+			font-weight: 400
+
+		.btn-text
+			transition: 0.3s
+			+color(headline)
+
+		.btn-icon
+			display: flex
+			align-items: center
+			justify-content: center
+			transition: 0.3s
+			+color(headline)
+
+		&.icon-left
+			flex-direction: row-reverse
+
+			.btn-icon
+				margin-left: 0
+				margin-right: 10px
+
+		&.icon-right
+			.btn-icon
+				margin-left: 10px
+
+	.box-badge
+		position: absolute
+		right: var(--badge-h-offset)
+		top: var(--badge-v-offset)
+		padding: 5px 10px
+		border-radius: 0
+		vertical-align: middle
+		+color(dark)
+		+bgcolor(primary)
+		+fsw(12px, 500)
+		display: inline-flex
+		justify-content: center
+		align-items: center
+		line-height: 1
+		transform: rotate(var(--badge-rotate))
+		transition: 0.3s
+
+		&.badge-top-left
+			left: var(--badge-h-offset)
+			right: auto
+
+		&.badge-bottom-left
+			top: auto
+			bottom: var(--badge-v-offset)
+			left: var(--badge-h-offset)
+			right: auto
+
+		&.badge-bottom-right
+			top: auto
+			bottom: var(--badge-v-offset)
+
+	.box-wrapper-link
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		height: 100%
+		z-index: 3
+
+	&:hover
+
+		&::before
+			opacity: 1
+			visibility: visible
+
+		.left-bordered,
+		.right-bordered
+			height: 100%
+
+		.top-bordered,
+		.bottom-bordered
+			width: 100%

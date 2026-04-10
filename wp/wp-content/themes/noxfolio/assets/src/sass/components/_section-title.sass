@@ -1,0 +1,35 @@
+/** ===== Section Title ===== **/
+.noxfolio-section-title
+	position: relative
+	line-height: 1
+
+	.subtitle
+		display: inline-flex
+		align-items: center
+		+fsw(16px, 500)
+		line-height: 1.2
+		margin-bottom: 15px
+
+	.title-icon
+		font-size: 18px
+		margin-right: 10px
+		+color(primary)
+
+	.title
+		+fsecondary(45px, 500)
+		line-height: 1.2
+		+color(white)
+		margin: 0
+
+		@include respond-below(xl)
+			font-size: 38px
+
+		@include respond-below(md)
+			font-size: 32px
+
+		@include respond-below(c480)
+			font-size: 28px
+
+		.focus-text
+			display: inline
+			+color(primary)

@@ -1,0 +1,117 @@
+/** ===== Counter ===== **/
+.noxfolio-counter-box
+	position: relative
+	line-height: 1
+	transition: 0.3s
+	--icon-space: 30px
+
+	&::before
+		content: ""
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		height: 100%
+		z-index: -1
+		transition: 0.3s
+		opacity: 0
+		visibility: hidden
+
+	&:hover
+		&::before
+			opacity: 1
+			visibility: visible
+
+	&.text-center
+		text-align: center
+
+	&.text-right
+		text-align: right
+
+	&.text-left
+		text-align: left
+
+	&.icon-top
+		.counter-icon
+			margin-bottom: var(--icon-space)
+
+	&.icon-left
+		display: flex
+		align-items: flex-start
+
+		.counter-icon
+			margin-right: var(--icon-space)
+
+		&.icon-back-top
+			@include respond-below(c480)
+				justify-content: flex-start !important
+
+				.counter-icon
+					margin-right: 0
+					margin-bottom: var(--icon-space)
+
+	&.icon-right
+		display: flex
+		align-items: flex-start
+		flex-direction: row-reverse
+
+		.counter-icon
+			margin-left: var(--icon-space)
+
+		&.icon-back-top
+			@include respond-below(c480)
+				.counter-icon
+					margin-left: 0
+					margin-bottom: var(--icon-space)
+
+	&.icon-left,
+	&.icon-right
+		&.icon-back-top
+			@include respond-below(c480)
+				flex-direction: column
+
+				&.text-right
+					align-items: flex-end !important
+
+				&.text-center
+					align-items: center !important
+
+				&.text-left
+					align-items: flex-start !important
+
+	.counter-icon
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		flex: 0 0 auto
+		font-size: 45px
+		+color(primary)
+		transition: 0.3s
+
+		img
+			width: 65px
+
+	.counter-inner
+		flex-grow: 1
+
+	.counter-wrap
+		+fsecondary(40px, 500)
+		line-height: 1
+		+color(primary)
+		display: inline-flex
+		align-items: center
+		margin-bottom: 15px
+		transition: 0.3s
+
+	.counter-title
+		+fprimary(16px, 400)
+		line-height: 1.4
+		+color(body)
+		margin: 0
+		transition: 0.3s
+
+	.counter-desc
+		+fsw( 15px, 400 )
+		line-height: 1.7
+		margin: 12px 0 0
+		transition: 0.3s

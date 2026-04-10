@@ -1,0 +1,52 @@
+/** ===== Check List ===== **/
+.noxfolio-check-list
+	margin: 0
+	padding: 0
+	list-style: none
+	line-height: 1
+	--icon-space: 20px
+
+	@include respond-below(md)
+		--icon-space: 15px
+
+	li
+		margin: 0
+		padding: 0
+		display: flex
+		align-items: center
+
+		&:not(:last-child)
+			margin-bottom: 25px
+
+		.list-icon
+			+createbox(30px, 30px, true)
+			font-size: 16px
+			+color(secondary)
+			+bgcolor(primary)
+
+			@include respond-below(md)
+				width: 25px
+				height: 25px
+				font-size: 14px
+
+			.fas
+				+ffw( "Font Awesome 5 Pro", 400 )
+
+		.list-text
+			+color(headline)
+			font-size: 18px
+			line-height: 1.4
+
+			@include respond-below(md)
+				font-size: 16px
+
+	&.icon-left
+		.list-icon
+			margin-right: var(--icon-space)
+
+	&.icon-right
+		li
+			flex-direction: row-reverse
+
+		.list-icon
+			margin-left: var(--icon-space)

@@ -1,0 +1,176 @@
+/** ===== Input Fields ===== **/
+label
+	display: inline-block
+	cursor: pointer
+	+fsecondary(18px, 500)
+	+color(headline)
+	margin: 0 0 10px
+
+input,
+button,
+select,
+optgroup,
+textarea
+	display: block
+	width: 100%
+	height: 60px
+	+gapP(0, 25px)
+	+fsecondary(16px, 400)
+	color: #4c4c4c
+	transition: 0.3s
+	background-color: getColor(secondary)
+	border: 1px solid getColor(border)
+	border-radius: 10px
+
+	&:focus
+		border-color: getColor(primary)
+		+color(white)
+		+bgcolor(dark)
+
+textarea
+	height: 125px
+	padding-top: 25px
+
+::placeholder
+	color: inherit
+	opacity: 1
+	font-size: inherit
+
+select
+	word-wrap: normal
+	appearance: none
+	-webkit-appearance: none
+	-moz-appearance: none
+	background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='14' height='14' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='white'/></g></svg>") !important
+	background-position: right 20px top 50% !important
+	background-repeat: no-repeat !important
+
+	&::-ms-expand
+		display: none
+
+	&:focus
+		outline: transparent
+
+	option
+		line-height: 1.8
+		padding: 5px 10px
+
+input[type="radio"],
+input[type="checkbox"]
+	display: inline-block
+	box-sizing: border-box
+	padding: 0
+	width: 15px
+	height: 15px
+	cursor: pointer
+	+bgcolor(secondary)
+
+input[type="color"]
+	width: 60px
+	height: 60px
+	padding: 10px
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button
+	height: auto
+
+[type="search"]
+	outline-offset: -2px
+	-webkit-appearance: none
+
+	&::-ms-clear
+		display: none
+		width: 0
+		height: 0
+
+	&::-ms-reveal
+		display: none
+		width: 0
+		height: 0
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration
+	-webkit-appearance: none
+
+::-webkit-file-upload-button
+	font: inherit
+	-webkit-appearance: button
+	height: 100%
+	background-color: transparent
+	border: none
+	+color(white)
+
+::-webkit-calendar-picker-indicator
+	filter: invert(0.3)
+
+[hidden]
+	display: none !important
+
+// /** ===== Buttons ===== **/
+[role="button"]
+	cursor: pointer
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"]
+	-webkit-appearance: button
+
+button:not(:disabled),
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled)
+	cursor: pointer
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner
+	padding: 0
+	border-style: none
+
+input[type="reset"],
+input[type="submit"],
+button[type="submit"]
+	width: auto
+	height: auto
+	padding: 15px 35px
+	+fprimary(16px, 600)
+	line-height: 1.25
+	text-transform: capitalize
+	text-decoration: none
+	+color(dark)
+	+bgcolor(primary)
+	border: none
+	border-radius: 15px
+
+	&:hover
+		+color(white)
+		+bgcolor(dark)
+
+button[type="submit"] i
+	margin-left: 10px
+
+.wpcf7-form-control-wrap
+	display: block
+
+.wpcf7-not-valid-tip
+	margin-top: 10px
+
+.wpcf7-spinner
+	position: absolute
+	left: 50%
+	transform: translateX(-50%)
+	bottom: 15px
+	margin: 0
+
+.input-filed
+	margin-bottom: 30px
+
+.mf-checkbox-option label
+	color: inherit
+
+.metform-btn
+	height: auto
